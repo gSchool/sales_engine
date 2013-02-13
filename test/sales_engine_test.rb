@@ -8,9 +8,9 @@ require './lib/invoice'
 require './lib/invoice_item'
 require './lib/item'
 require './lib/customer'
-require './lib/sales_engine'
+require './sales_engine'
 
-class SalesEngineTest < MiniTest::Unit::TestCase
+class SalesEngineTest < Minitest::Unit::TestCase
 
   def test_it_loads_all_data_when_startup_called
     SalesEngine.startup
