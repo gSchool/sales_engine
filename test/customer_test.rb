@@ -52,15 +52,38 @@ class CustomerTest < MiniTest::Unit::TestCase
   def test_it_can_find_a_customer_by_first_name
     customers = CsvLoader.load_customers
 
-    customer = Customer.find_by_first_name("Mary")
-    assert_equal "Mary", customer.first_name
+    customer = Customer.find_by_first_name("Mariah")
+    assert_equal "Mariah", customer.first_name
   end
 
+#### HOW DO I TEST FOR MULTIPLE RETURNS?
   def test_it_can_find_ALL_customers_by_first_name
     customers = CsvLoader.load_customers
 
-    customer = Customer.find_by_first_name("Mary")
-    assert_equal "Mary", customer.first_name
+    found_customers = Customer.find_all_by_first_name("Beverly")
+    assert_equal 2 , found_customers.length
+  end
+
+  def test_it_can_find_customer_by_id
+    customers = CsvLoader.load_customers
+
+    customer = Customer.find_by_id("10")
+    assert_equal "10", customer.id
+  end
+
+  def test_it_can_find_customer_by_last_name
+    customers = CsvLoader.load_customers
+
+    customer = Customer.find_by_last_name("Upton")
+    assert_equal "Upton", customer.last_name
+  end
+
+#### HOW DO I TEST FOR MULTIPLE RETURNS?
+  def test_it_can_find_ALL_customers_by_last_name
+    customers = CsvLoader.load_customers
+
+    found_customers = Customer.find_all_by_last_name("Upton")
+    assert_equal 7 , found_customers.length
   end
 end
 

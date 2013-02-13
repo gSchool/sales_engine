@@ -24,21 +24,28 @@ class Customer
     pick_number = @@customers.size
     random_number = rand(pick_number)
     random_customer = @@customers[random_number]
-    puts "#{random_customer}"
     random_customer
   end
 
-#is this trying to return ALL customers with first name mary? I think so...
+  def self.find_by_id(id)
+    @@customers.find{|customer| customer.id == id}
+  end
+
   def self.find_by_first_name(first_name)
     @@customers.find {|customer| customer.first_name == first_name}
   end
 
   def self.find_all_by_first_name(first_name)
-    @@customers.each do |customer|
-      if customer.first_name == first_name
-        return customer
-      end
-    end
+    @@customers.find_all {|customer| customer.first_name == first_name}
   end
+
+  def self.find_by_last_name(last_name)
+    @@customers.find {|customer| customer.last_name == last_name}
+  end
+
+  def self.find_all_by_last_name(last_name)
+    @@customers.find_all {|customer| customer.last_name == last_name}
+  end
+
 
 end
