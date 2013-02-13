@@ -16,5 +16,6 @@ attr_accessor :id, :name, :created_at, :updated_at
 
   def self.size
     @@merchants.size
+
   end
 end

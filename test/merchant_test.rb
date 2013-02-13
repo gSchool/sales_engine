@@ -34,7 +34,6 @@ class MerchantTest < MiniTest::Unit::TestCase
     data = [Merchant.new( id: 'id', name: 'name', created_at: 'date', updated_at: 'another_date' )]
     Merchant.add data
     assert_equal 1, Merchant.size
-
   end
 
 end
