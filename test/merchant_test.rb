@@ -36,4 +36,17 @@ class MerchantTest < MiniTest::Unit::TestCase
     assert_equal 1, Merchant.size
   end
 
+  def test_it_returns_a_random_merchant_when_random_is_called
+    merchants = CsvLoader.load_merchants
+    assert_equal 100, merchants.size
+
+    random_merchant1 = Merchant.random
+    assert_kind_of Merchant, random_merchant1
+    #can i do a compare assert?
+  end
+
+
+
+
+
 end
