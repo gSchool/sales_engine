@@ -52,7 +52,7 @@ class TransactionTest < MiniTest::Unit::TestCase
     assert_equal 'another_date2', transaction.updated_at
   end
 
-  def test_it_stores_merchants_from_an_array
+  def test_it_stores_transactions_from_an_array
     transaction = Transaction.new(
                                id: 'id',
                                invoice_id: 'invoice_id',
