@@ -45,8 +45,22 @@ class MerchantTest < MiniTest::Unit::TestCase
     #can i do a compare assert?
   end
 
+  def test_it_finds_a_merchant_by_id
+    merchants = CsvLoader.load_merchants
+    merchant = Merchant.find_by_id("10")
+    assert_equal "10", merchant.id
+  end
 
+  def test_if_returns_a_merchant_by_name
+    merchants = CsvLoader.load_merchants
+    found_merchant = Merchant.find_by_name("Schuster Group")
+    assert_equal "Schuster Group", found_merchant.name
+  end
 
-
+  def test_it_returns_all_merchants_by_name
+    merchants = CsvLoader.load_merchants
+    found_merchants = Merchant.find_all_by_name("Williamson Group")
+    assert_equal 2, found_merchants.length
+  end
 
 end
