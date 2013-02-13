@@ -21,7 +21,7 @@ class CustomerTest < MiniTest::Unit::TestCase
     assert_equal 'date', customer.created_at
     assert_equal 'another_date', customer.updated_at
 
- customer = Customer.new(
+    customer = Customer.new(
                           id: 'id2', first_name: 'first_name2', 
                           last_name: 'last_name2', created_at: 'date2',
                           updated_at: 'another_date2' )
@@ -38,5 +38,33 @@ class CustomerTest < MiniTest::Unit::TestCase
                           updated_at: 'another_date2' )]
      Customer.add data
      assert_equal 1, Customer.size
-    end
+  end
+  
+  def test_it_returns_a_random_customer_when_random_is_called
+    customers = CsvLoader.load_customers
+    assert_equal 1000, customers.size
+
+    random_customer1 = Customer.random
+    assert_kind_of Customer, random_customer1
+    #can i do a compare assert?
+  end
+
+  def test_it_can_find_a_customer_by_first_name
+    customers = CsvLoader.load_customers
+
+    customer = Customer.find_by_first_name("Mary")
+    assert_equal "Mary", customer.first_name
+  end
+
+  def test_it_can_find_ALL_customers_by_first_name
+    customers = CsvLoader.load_customers
+
+    customer = Customer.find_by_first_name("Mary")
+    assert_equal "Mary", customer.first_name
+  end
 end
+
+
+
+
+
