@@ -1,5 +1,7 @@
 require 'csv'
 require 'merchant'
+require 'invoice_item'
+
 
 class CsvLoader
 
@@ -9,4 +11,9 @@ class CsvLoader
     Merchant.add merchants
   end
 
+  def self.load_invoice_items
+    contents = CSV.open('./data/merchants.csv', headers: true, header_converters: :symbol)
+    invoice_items = contents.collect { |row| InvoiceItem.new(row.to_hash) }
+    InvoiceItem.add(invoice_items)
+  end
 end
