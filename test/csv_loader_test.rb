@@ -28,7 +28,7 @@ class CsvLoaderTest < MiniTest::Unit::TestCase
 
   def test_it_loads_invoices
     invoices = CsvLoader.load_invoices
-    assert_equal 4843, invoices.size
+    assert_equal 4843, Invoice.size
 
     assert_kind_of Invoice, invoices.first
   end
