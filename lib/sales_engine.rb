@@ -28,6 +28,6 @@ class SalesEngine
   end
 
   def transaction_repository
-
+    @transaction_repository ||= TransactionRepository.new.transactions
   end
 end

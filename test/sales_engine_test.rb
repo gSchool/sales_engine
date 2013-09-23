@@ -70,7 +70,6 @@ class SalesEngineTest < MiniTest::Unit::TestCase
   end
 
   def test_transaction_repository_does_return_array_of_transactions
-    skip
     transactions = se.transaction_repository
     transactions.each {|trans| assert_kind_of Transaction, trans}
   end
