@@ -26,9 +26,7 @@ class SalesEngineTest < MiniTest::Unit::TestCase
 
   def test_merchant_repository_does_return_array_of_merchants
     merchants = se.merchant_repository
-    merchants.each do |merch|
-      assert_kind_of Merchant, merch 
-    end
+    merchants.each { |merch| assert_kind_of Merchant, merch}
   end
 
   def test_it_does_respond_to_invoice_repos
@@ -36,7 +34,6 @@ class SalesEngineTest < MiniTest::Unit::TestCase
   end 
 
   def test_invoice_repository_does_return_array_of_invoices
-    skip
     invoices = se.invoice_repository
     invoices.each { |invoice|  assert_kind_of Invoice, invoice }
   end
@@ -54,6 +51,12 @@ class SalesEngineTest < MiniTest::Unit::TestCase
   def test_it_does_respond_to_invoice_item_repos
     assert SalesEngine.instance_methods.include?(:invoice_item_repository)
   end 
+
+  def test_invoice_item_repository_does_return_array_of_invoiceitems
+    skip
+    invoice_items = se.invoice_item_repository
+    invoice_items.each {|ii| assert_kind_of InvoiceItem, ii}
+  end
 
   def test_it_does_respond_to_customer_repos
     assert SalesEngine.instance_methods.include?(:customer_repository)

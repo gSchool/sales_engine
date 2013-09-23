@@ -6,11 +6,11 @@ class SalesEngine
   end
 
   def merchant_repository
-    @merchant_repository ||= MerchantRepository.new
+    @merchant_repository ||= MerchantRepository.new.merchants 
   end
 
   def invoice_repository
- 
+    @invoice_repository ||= InvoiceRepository.new.invoices
   end
 
   def item_repository
