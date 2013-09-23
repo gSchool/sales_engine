@@ -52,7 +52,6 @@ class SalesEngineTest < MiniTest::Unit::TestCase
   end 
 
   def test_invoice_item_repository_does_return_array_of_invoiceitems
-    skip
     invoice_items = se.invoice_item_repository
     invoice_items.each {|ii| assert_kind_of InvoiceItem, ii}
   end
@@ -62,8 +61,17 @@ class SalesEngineTest < MiniTest::Unit::TestCase
   end 
 
   def test_customer_repository_does_return_array_of_customer
-    skip
     customers = se.customer_repository
     customers.each { |customer|  assert_kind_of Customer, customer }
+  end
+
+  def test_it_does_respond_to_transaction_repos
+    assert SalesEngine.instance_methods.include?(:transaction_repository)
+  end
+
+  def test_transaction_repository_does_return_array_of_transactions
+    skip
+    transactions = se.transaction_repository
+    transactions.each {|trans| assert_kind_of Transaction, trans}
   end
 end

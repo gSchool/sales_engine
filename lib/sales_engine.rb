@@ -20,10 +20,14 @@ class SalesEngine
   end
 
   def invoice_item_repository
-
+    @invoice_item_repository ||= InvoiceItemRepository.new.invoice_items 
   end
 
   def customer_repository
+    @customer_repository ||= CustomerRepository.new.customers
+  end
+
+  def transaction_repository
 
   end
 end
