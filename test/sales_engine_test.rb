@@ -43,7 +43,6 @@ class SalesEngineTest < MiniTest::Unit::TestCase
   end 
 
   def test_item_repository_does_return_array_of_item
-    skip
     items = se.item_repository
     items.each { |item|  assert_kind_of Item, item }
   end

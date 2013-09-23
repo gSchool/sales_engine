@@ -1,4 +1,6 @@
 require './lib/merchant_repository'
+require_relative 'item_repository'
+
 class SalesEngine
 
   def startup
@@ -14,11 +16,11 @@ class SalesEngine
   end
 
   def item_repository
-
+    @item_repository ||= ItemRepository.new.items
   end
 
   def invoice_item_repository
-s
+
   end
 
   def customer_repository
