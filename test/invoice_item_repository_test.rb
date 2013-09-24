@@ -16,11 +16,11 @@ class InvoiceItemRepositoryTest < MiniTest::Unit::TestCase
   end
 
   def test_it_creates_an_array_on_initialize
-    assert_kind_of Array, iir.invoice_items 
+    assert_kind_of Array, iir.collection_array
   end
 
   def test_invoice_item_repository_does_return_array_of_invoiceitems
-    iir.invoice_items.each {|ii| assert_kind_of InvoiceItem, ii}
+    iir.collection_array.each {|ii| assert_kind_of InvoiceItem, ii}
   end
 
 end

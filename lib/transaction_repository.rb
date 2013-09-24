@@ -1,9 +1,9 @@
 require_relative 'transaction'
+require_relative 'base_repository'
 
-class TransactionRepository
-  attr_accessor :transactions
+class TransactionRepository < BaseRepository
   def initialize
-    @transactions = create_transaction_array
+    @collection_array = create_transaction_array
   end
 
   def create_transaction_array

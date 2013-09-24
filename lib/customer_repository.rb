@@ -1,11 +1,10 @@
 require_relative 'customer'
+require_relative 'base_repository'
 
-class CustomerRepository
-
-  attr_accessor :customers
+class CustomerRepository < BaseRepository
 
   def initialize
-    @customers = create_customers_array
+    @collection_array = create_customers_array
   end
 
   def create_customers_array

@@ -1,11 +1,10 @@
 require_relative 'merchant'
+require_relative 'base_repository'
 
-class MerchantRepository
-
-  attr_accessor :merchants
+class MerchantRepository < BaseRepository
 
   def initialize
-    @merchants = create_merchant_array 
+    @collection_array = create_merchant_array 
   end
 
   def create_merchant_array
