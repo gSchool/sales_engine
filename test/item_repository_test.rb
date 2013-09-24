@@ -15,10 +15,10 @@ class ItemRepositoryTest< MiniTest::Unit::TestCase
   end
 
   def test_does_it_create_array_on_initialize
-    assert_kind_of Array, ir.items
+    assert_kind_of Array, ir.collection_array
   end
 
   def test_item_repository_does_return_array_of_item
-    ir.items.each { |item|  assert_kind_of Item, item }
+    ir.collection_array.each { |item|  assert_kind_of Item, item }
   end
 end
