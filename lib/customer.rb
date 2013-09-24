@@ -9,5 +9,4 @@ class Customer
     @created_at = input[:created_at]
     @updated_at = input[:updated_at]
   end
-
 end
