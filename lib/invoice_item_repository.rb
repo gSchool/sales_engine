@@ -1,11 +1,10 @@
 require_relative 'invoice_item'
+require_relative 'base_repository'
 
-class InvoiceItemRepository
-
-  attr_accessor :invoice_items
+class InvoiceItemRepository < BaseRepository
 
   def initialize
-    @invoice_items = create_invoice_items_array
+    @collection_array = create_invoice_items_array
   end
 
   def create_invoice_items_array

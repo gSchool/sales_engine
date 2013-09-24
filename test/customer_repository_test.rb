@@ -16,11 +16,11 @@ class CustomerRepositoryTest < MiniTest::Unit::TestCase
   end
 
   def test_it_does_create_an_array
-    assert_kind_of Array, cr.customers 
+    assert_kind_of Array, cr.collection_array 
   end
 
   def test_customer_repository_does_return_array_of_customer
-    cr.customers.each { |customer|  assert_kind_of Customer, customer }
+    cr.collection_array.each { |customer|  assert_kind_of Customer, customer }
   end
 
 end
