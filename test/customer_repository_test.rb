@@ -40,17 +40,80 @@ class CustomerRepositoryTest < Minitest::Test
     assert_equal "1", first_customer.id
   end
 
+  def test_it_can_select_a_random_customer_from_all
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    random_customers = []
+    5.times do
+      random_customers << customer_repository.random
+    end
+    refute_equal customer_repository.all, random_customers
+  end
 
+  def test_it_return_correct_customer_by_id
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customer = customer_repository.find_by_id("1")
+    assert_equal "1", customer.id
+  end
 
+  def test_it_return_correct_customer_by_first_name
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customer = customer_repository.find_by_first_name("Joey")
+    assert_equal "Joey", customer.first_name
+  end
 
+  def test_it_return_correct_customer_by_last_name
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customer = customer_repository.find_by_last_name("Ondricka")
+    assert_equal "Ondricka", customer.last_name
+  end
 
-#test_random_customer def all all.sample end
+  def test_it_return_correct_customer_by_created_at
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customer = customer_repository.find_by_created_at("2012-03-27 14:54:09 UTC")
+    assert_equal "2012-03-27 14:54:09 UTC", customer.created_at
+  end
 
+  def test_it_return_correct_customer_by_updated_at
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customer = customer_repository.find_by_updated_at("2012-03-27 14:54:09 UTC")
+    assert_equal "2012-03-27 14:54:09 UTC", customer.updated_at
+  end
 
+  def test_it_return_correct_number_of_customers_for_all_id
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customers = customer_repository.find_all_by_id("1")
+    assert_equal 1, customers.count
+  end
 
+  def test_it_return_correct_number_of_customers_for_all_first_name
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customers = customer_repository.find_all_by_first_name("Sylvester")
+    assert_equal 2, customers.count
+  end
 
+  def test_it_return_correct_number_of_customers_for_all_last_name
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customers = customer_repository.find_all_by_last_name("Toy")
+    assert_equal 2, customers.count
+  end
 
-  # def test_search
-  # end
+  def test_it_return_correct_number_of_customers_for_all_created_at
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customers = customer_repository.find_all_by_created_at("2012-03-27 14:54:10 UTC")
+    assert_equal 4, customers.count
+  end
+
+  def test_it_return_correct_number_of_customers_for_all_updated_at
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customers = customer_repository.find_all_by_updated_at("2012-03-27 14:54:10 UTC")
+    assert_equal 4, customers.count
+  end
+
+  def test_it_return_empty_array_for_all_last_name_when_none
+    customer_repository = CustomerRepository.new("./test/fixtures/customers_test.csv")
+    customers = customer_repository.find_all_by_last_name("Busse")
+    assert_equal [], customers
+    refute customers.nil?
+  end
 
 end
