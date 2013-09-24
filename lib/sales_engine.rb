@@ -7,6 +7,8 @@ require_relative 'transaction_repository'
 
 class SalesEngine
 
+  def initialize(data='./data')
+  end
   def startup
 
   end
