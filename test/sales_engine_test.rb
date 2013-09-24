@@ -24,53 +24,47 @@ class SalesEngineTest < MiniTest::Unit::TestCase
     assert SalesEngine.instance_methods.include?(:merchant_repository)
   end
 
-  def test_merchant_repository_does_return_array_of_merchants
-    merchants = se.merchant_repository
-    merchants.each { |merch| assert_kind_of Merchant, merch}
+  def test_it_does_return_a_merchant_repository_instance
+    assert_kind_of MerchantRepository, @se.merchant_repository
   end
 
   def test_it_does_respond_to_invoice_repos
     assert SalesEngine.instance_methods.include?(:invoice_repository)
-  end 
-
-  def test_invoice_repository_does_return_array_of_invoices
-    invoices = se.invoice_repository
-    invoices.each { |invoice|  assert_kind_of Invoice, invoice }
   end
+
+  def test_it_does_return_an_invoice_repository_instance
+    assert_kind_of InvoiceRepository, @se.invoice_repository
+  end 
 
   def test_it_does_respond_to_item_repos
     assert SalesEngine.instance_methods.include?(:item_repository)
   end 
 
-  def test_item_repository_does_return_array_of_item
-    items = se.item_repository
-    items.each { |item|  assert_kind_of Item, item }
+  def test_it_does_return_an_item_repository_instance
+    assert_kind_of ItemRepository, @se.item_repository
   end
 
   def test_it_does_respond_to_invoice_item_repos
     assert SalesEngine.instance_methods.include?(:invoice_item_repository)
-  end 
-
-  def test_invoice_item_repository_does_return_array_of_invoiceitems
-    invoice_items = se.invoice_item_repository
-    invoice_items.each {|ii| assert_kind_of InvoiceItem, ii}
   end
+
+  def test_it_does_return_an_invoice_items_repository_instance
+    assert_kind_of InvoiceItemRepository, @se.invoice_item_repository
+  end 
 
   def test_it_does_respond_to_customer_repos
     assert SalesEngine.instance_methods.include?(:customer_repository)
-  end 
-
-  def test_customer_repository_does_return_array_of_customer
-    customers = se.customer_repository
-    customers.each { |customer|  assert_kind_of Customer, customer }
   end
+
+  def test_it_does_return_a_customer_repository_instance
+    assert_kind_of CustomerRepository, @se.customer_repository
+  end 
 
   def test_it_does_respond_to_transaction_repos
     assert SalesEngine.instance_methods.include?(:transaction_repository)
   end
 
-  def test_transaction_repository_does_return_array_of_transactions
-    transactions = se.transaction_repository
-    transactions.each {|trans| assert_kind_of Transaction, trans}
+  def test_it_does_return_a_transaction_repository_instance
+    assert_kind_of TransactionRepository, @se.transaction_repository
   end
 end
