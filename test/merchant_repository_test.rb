@@ -20,4 +20,8 @@ class MerchantRepositoryTest < MiniTest::Unit::TestCase
   def test_initialize_does_create_array
     assert_kind_of Array, mr.merchants
   end
+
+  def test_merchant_repository_does_return_array_of_merchants
+    mr.merchants.each { |merch| assert_kind_of Merchant, merch}
+  end
 end

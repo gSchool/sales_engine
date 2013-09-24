@@ -1,3 +1,5 @@
+require_relative 'transaction'
+
 class TransactionRepository
   attr_accessor :transactions
   def initialize

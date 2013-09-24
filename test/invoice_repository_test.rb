@@ -19,4 +19,8 @@ class InvoiceRepositoryTest < MiniTest::Unit::TestCase
     assert_kind_of Array, ir.invoices 
   end
 
+  def test_invoice_repository_does_return_array_of_invoices
+    ir.invoices.each { |invoice|  assert_kind_of Invoice, invoice }
+  end
+
 end

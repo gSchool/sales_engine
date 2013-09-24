@@ -18,4 +18,8 @@ class TransactionRepositoryTest < MiniTest::Unit::TestCase
   def test_it_creates_array_during_initialization
     assert_kind_of Array, tr.transactions
   end
+
+  def test_transaction_repository_does_return_array_of_transactions
+    tr.transactions.each {|trans| assert_kind_of Transaction, trans}
+  end
 end
