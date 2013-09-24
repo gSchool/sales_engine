@@ -8,10 +8,6 @@ class MerchantRepository
     @file_path = file_path
   end
 
-  def open_file
-    CSV.open file_path, headers: true    
-  end
-
   def all
     @all ||= create_merchants
   end
@@ -24,40 +20,25 @@ class MerchantRepository
                                               :updated_at => row["updated_at"])}
   end
 
+  def open_file
+    CSV.open file_path, headers: true    
+  end
+
   def random
     all.sample
   end
 
-  def find_by_id(criteria)
-    all.find{|merchant| merchant.id == criteria} 
+#if false
+  %w(id name created_at updated_at).each do |attribute|
+    define_method("find_by_#{attribute}") do |criteria| 
+      all.find{|c| c.send(attribute) == criteria}
+    end
   end
-
-  def find_by_name(criteria)
-    all.find{|merchant| merchant.name == criteria} 
-  end
-
-  def find_by_created_at(criteria)
-    all.find{|merchant| merchant.created_at == criteria} 
-  end
-
-  def find_by_updated_at(criteria)
-    all.find{|merchant| merchant.updated_at == criteria} 
-  end
-  
-  def find_all_by_id(criteria)
-    all.find_all{|merchant| merchant.id == criteria} 
-  end
-
-  def find_all_by_name(criteria)
-    all.find_all{|merchant| merchant.name == criteria} 
-  end
-
-  def find_all_by_created_at(criteria)
-    all.find_all{|merchant| merchant.created_at == criteria} 
-  end
-
-  def find_all_by_updated_at(criteria)
-    all.find_all{|merchant| merchant.updated_at == criteria} 
+ 
+  %w(id name created_at updated_at).each do |attribute|
+    define_method("find_all_by_#{attribute}") do |criteria| 
+      all.find_all{|c| c.send(attribute) == criteria}
+    end
   end
 
 end

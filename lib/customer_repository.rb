@@ -22,7 +22,7 @@ class CustomerRepository
     end
   end
  
- %w(id first_name last_name created_at updated_at).each do |attribute|
+  %w(id first_name last_name created_at updated_at).each do |attribute|
     define_method("find_all_by_#{attribute}") do |criteria| 
       all.find_all{|c| c.send(attribute) == criteria}
     end
