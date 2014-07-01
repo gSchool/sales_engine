@@ -3,7 +3,7 @@ require './test/test_helper'
 class InvoiceRepositoryTest < Minitest::Test
   attr_reader :invoice_repo
   def setup
-    @invoice_repo = InvoiceRepository.from_file('./test/fixtures/invoice.csv')
+    @invoice_repo = InvoiceRepository.from_file('./test/fixtures/invoices.csv')
   end
 
   def test_it_has_invoices

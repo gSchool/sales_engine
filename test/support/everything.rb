@@ -32,3 +32,16 @@ class Everything
     @result      = data[:result]
   end
 end
+
+class EverythingRepository
+  include Finder
+  def self.from_file(file_name='./test/fixtures/everything.csv', klass)
+    thing = Loader.read(file_name, Everything)
+    new(thing)
+  end
+
+  attr_reader :objects
+  def initialize(thing)
+    @objects = thing
+  end
+end
