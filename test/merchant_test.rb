@@ -5,7 +5,7 @@ class MerchantTest < Minitest::Test
   attr_reader :merchant
 
   def setup
-    @merchant = Merchant.new(id: "1", name: "Schroeder-Jerde", created_at: "2012-03-27 14:53:59 UTC", updated_at: "2012-03-27 14:53:59 UTC")
+    @merchant = Merchant.new({id: "1", name: "Schroeder-Jerde", created_at: "2012-03-27 14:53:59 UTC", updated_at: "2012-03-27 14:53:59 UTC"}, "test/fixtures")
   end
 
   def test_it_exists
@@ -29,10 +29,14 @@ class MerchantTest < Minitest::Test
   end
 
   def test_it_has_items
-
+    items = merchant.items
+    assert_equal 10, items.count
+    assert_kind_of Item, items[1]
   end
 
   def test_it_has_invoices
-
+    invoices = merchant.invoices
+    assert_equal 1, invoices.count
+    assert_kind_of Invoice, invoices[0]
   end
 end
