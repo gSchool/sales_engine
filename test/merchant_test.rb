@@ -3,6 +3,7 @@ require './lib/merchant'
 
 class MerchantTest < Minitest::Test
   attr_reader :merchant
+
   def setup
     @merchant = Merchant.new(id: "1", name: "Schroeder-Jerde", created_at: "2012-03-27 14:53:59 UTC", updated_at: "2012-03-27 14:53:59 UTC")
   end
