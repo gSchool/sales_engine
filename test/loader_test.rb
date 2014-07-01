@@ -3,14 +3,16 @@ require './lib/loader'
 require 'csv'
 
 class LoaderTest < Minitest::Test
+  attr_reader :loader
+  def setup
+    @loader = Loader.read('test/fixtures/merchants.csv', Merchant)
+  end
+
   def test_it_exists
-    loader = Loader.read('test/fixtures/merchant.csv', Merchant)
     assert loader
   end
 
   def test_it_loads_data
-    loader = Loader.read('test/fixtures/merchant.csv', Merchant)
-
     results = loader[0]
     assert_equal 'Schroeder-Jerde', results.name
 
