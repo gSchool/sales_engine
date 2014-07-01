@@ -1,10 +1,4 @@
 require './test/test_helper'
-require './lib/merchant'
-require './lib/merchant_repository'
-require './lib/item'
-require './lib/invoice'
-require './lib/loader'
-require 'csv'
 
 class MerchantRepositoryTest < Minitest::Test
   attr_reader :merchant_repo
@@ -13,6 +7,6 @@ class MerchantRepositoryTest < Minitest::Test
   end
 
   def test_it_has_merchants
-    assert merchant_repo.merchants
+    assert merchant_repo.objects
   end
 end
