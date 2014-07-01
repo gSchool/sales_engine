@@ -4,12 +4,12 @@ require 'csv'
 
 class LoaderTest < Minitest::Test
   def test_it_exists
-    loader = Loader.read('test/fixtures/merchant.csv', Merchant)
+    loader = Loader.read('test/fixtures/merchants.csv', Merchant)
     assert loader
   end
 
   def test_it_loads_data
-    loader = Loader.read('test/fixtures/merchant.csv', Merchant)
+    loader = Loader.read('test/fixtures/merchants.csv', Merchant)
 
     results = loader[0]
     assert_equal 'Schroeder-Jerde', results.name

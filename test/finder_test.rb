@@ -8,7 +8,7 @@ require 'pry'
 class FinderTest < Minitest::Test
   attr_reader :objects
   def setup
-    @objects = MerchantRepository.from_file('./test/fixtures/merchant.csv')
+    @objects = MerchantRepository.from_file('./test/fixtures/merchants.csv')
   end
 
   def test_it_finds_a_random_object
