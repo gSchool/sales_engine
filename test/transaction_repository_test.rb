@@ -4,7 +4,9 @@ class TransactionRepositoryTest < Minitest::Test
   attr_reader :transaction_repo
 
   def setup
-    @transaction_repo = TransactionRepository.from_file('./test/fixtures/transactions.csv')
+    engine = SalesEngine.new
+    engine.startup("./test/fixtures")
+    @transaction_repo = TransactionRepository.from_file('./test/fixtures/transactions.csv', engine)
   end
 
   def test_it_has_transactions

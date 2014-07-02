@@ -6,7 +6,9 @@ require './test/support/everything'
 class FinderTest < Minitest::Test
   attr_reader :objects
   def setup
-    @objects = EverythingRepository.from_file('./test/fixtures/everything.csv')
+    engine = SalesEngine.new
+    engine.startup("./test/fixtures")
+    @objects = EverythingRepository.from_file('./test/fixtures/everything.csv', engine)
   end
 
   def test_it_finds_a_random_object

@@ -22,5 +22,15 @@ class SalesEngineTest < Minitest::Test
     sales_engine.transaction_repository.objects
   end
 
+  def test_it_finds_items_by
+    items = sales_engine.find_items_by("1", "merchant_id")
+    assert_equal 12, items.count
+    assert_kind_of Item, items[1]
+  end
 
+  def test_it_finds_invoices_by
+    invoices = sales_engine.find_invoices_by("1", "merchant_id")
+    assert_equal 1, invoices.count
+    assert_kind_of Invoice, invoices[0]
+  end
 end

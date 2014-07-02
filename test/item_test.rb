@@ -3,7 +3,9 @@ require './test/test_helper'
 class ItemTest < Minitest::Test
   attr_reader :item
   def setup
-    @item = Item.new(id: '1',name: 'Item Qui Esse',description: 'Nihil autem sit odio inventore deleniti. Est laudantium ratione distinctio laborum. Minus voluptatem nesciunt assumenda dicta voluptatum porro.',unit_price: '75107',merchant_id: '1',created_at: '2012-03-27 14:53:59 UTC',updated_at: '2012-03-27 14:53:59 UTC')
+    engine = SalesEngine.new
+    engine.startup("./test/fixtures")
+    @item = Item.new({id: '1',name: 'Item Qui Esse',description: 'Nihil autem sit odio inventore deleniti. Est laudantium ratione distinctio laborum. Minus voluptatem nesciunt assumenda dicta voluptatum porro.',unit_price: '75107',merchant_id: '1',created_at: '2012-03-27 14:53:59 UTC',updated_at: '2012-03-27 14:53:59 UTC'}, ItemRepository.from_file('test/fixtures/items.csv', engine))
   end
 
   def test_it_exists
