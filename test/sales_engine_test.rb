@@ -41,8 +41,7 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_if_finds_merchant_by
-    merchants = sales_engine.find_merchant_by("1", "id")
-    assert_equal 1, merchants.count
-    assert_kind_of Merchant, merchants[0]
+    merchant = sales_engine.find_merchant_by("1", "id")
+    assert_kind_of Merchant, merchant
   end
 end
