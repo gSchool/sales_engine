@@ -11,4 +11,16 @@ class ItemRepositoryTest < Minitest::Test
   def test_it_has_items
     assert item_repo.objects
   end
+
+  def test_it_finds_invoice_items
+    invoice_items = item_repo.find_invoice_items("1")
+    assert_equal 1, invoice_items.count
+    assert_kind_of InvoiceItem, invoice_items[0]
+  end
+
+  def test_it_finds_merchant
+    merchants = item_repo.find_merchant("1")
+    assert_equal 1, merchants.count
+    assert_kind_of Merchant, merchants[0]
+  end
 end

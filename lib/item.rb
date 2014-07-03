@@ -17,6 +17,13 @@ class Item
     @created_at       = data[:created_at]
     @updated_at       = data[:updated_at]
     @item_repository  = repo
+  end
 
+  def invoice_items
+    item_repository.find_invoice_items(id)
+  end
+
+  def merchant
+    item_repository.find_merchant(merchant_id)
   end
 end

@@ -33,4 +33,16 @@ class SalesEngineTest < Minitest::Test
     assert_equal 1, invoices.count
     assert_kind_of Invoice, invoices[0]
   end
+
+  def test_it_finds_invoice_items_by
+    invoice_items = sales_engine.find_invoice_items_by("1", "item_id" )
+    assert_equal 1, invoice_items.count
+    assert_kind_of InvoiceItem, invoice_items[0]
+  end
+
+  def test_if_finds_merchant_by
+    merchants = sales_engine.find_merchant_by("1", "id")
+    assert_equal 1, merchants.count
+    assert_kind_of Merchant, merchants[0]
+  end
 end

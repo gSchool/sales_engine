@@ -11,4 +11,10 @@ class CustomerRepositoryTest < Minitest::Test
   def test_it_has_customers
     assert customer_repo.objects
   end
+
+  def test_it_finds_invoices
+    invoices = customer_repo.find_invoices("1")
+    assert_equal 8, invoices.count
+    assert_kind_of Invoice, invoices[0]
+  end
 end

@@ -12,4 +12,8 @@ class CustomerRepository
     @objects = customers
     @sales_engine = engine
   end
+
+  def find_invoices(id)
+    sales_engine.find_invoices_by(id, "customer_id")
+  end
 end

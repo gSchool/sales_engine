@@ -31,4 +31,10 @@ class CustomerTest < Minitest::Test
   def test_it_has_an_updated_at_date
     assert_equal "2012-03-27 14:54:09 UTC", customer.updated_at
   end
+
+  def test_it_has_invoices
+    invoices = customer.invoices
+    assert_equal 8, invoices.count
+    assert_kind_of Invoice, invoices[0]
+  end
 end

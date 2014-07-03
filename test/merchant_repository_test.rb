@@ -9,7 +9,7 @@ class MerchantRepositoryTest < Minitest::Test
     @merchant_repo = MerchantRepository.from_file('./test/fixtures/merchants.csv', engine)
   end
 
-  def test_it_has_objects
+  def test_it_has_merchants
     assert merchant_repo.objects
   end
 

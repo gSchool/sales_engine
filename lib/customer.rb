@@ -3,7 +3,7 @@ class Customer
               :first_name,
               :last_name,
               :created_at,
-              :updated_at
+              :updated_at,
               :customer_repository
   def initialize(data, repo)
     @id         = data[:id]
@@ -12,5 +12,9 @@ class Customer
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
     @customer_repository = repo
+  end
+
+  def invoices
+    customer_repository.find_invoices(id)
   end
 end
