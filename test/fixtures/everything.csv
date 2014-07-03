@@ -1,0 +1,10 @@
+id,invoice_id,credit_card_number,credit_card_expiration_date,result,created_at,updated_at,first_name,last_name,item_id,quantity,unit_price,customer_id,merchant_id,status,name
+1,1,4654405418249632,,success,2012-03-27 14:54:09 UTC,2012-03-27 14:54:09 UTC,Joey,Ondricka,539,5,13635,1,26,shipped,Schroeder-Jerde
+2,2,4580251236515201,,success,2012-03-27 14:54:09 UTC,2012-03-27 14:54:09 UTC,Cecelia,Osinski,528,9,23324,1,75,shipped,Willms and Sons
+3,4,4354495077693036,,success,2012-03-27 14:54:10 UTC,2012-03-27 14:54:10 UTC,Mariah,Toy,523,8,34873,1,78,shipped,Cummings-Thiel
+4,5,4515551623735607,,success,2012-03-27 14:54:10 UTC,2012-03-27 14:54:10 UTC,Leanne,Braun,535,3,2196,1,33,shipped,Williamson Group
+5,6,4844518708741275,,success,2012-03-27 14:54:10 UTC,2012-03-27 14:54:10 UTC,Sylvester,Nader,529,7,79140,1,41,shipped,Williamson Group
+6,7,4203696133194408,,success,2012-03-27 14:54:10 UTC,2012-03-27 14:54:10 UTC,Heber,Kuhn,541,5,52100,1,76,shipped,Bernhard-Johns
+7,8,4801647818676136,,success,2012-03-27 14:54:10 UTC,2012-03-27 14:54:10 UTC,Parker,Daugherty,530,4,66747,1,44,shipped,"Osinski, Pollich and Koelpin"
+8,9,4540842003561938,,success,2012-03-27 14:54:10 UTC,2012-03-27 14:54:10 UTC,Loyal,Considine,534,6,76941,1,38,shipped,"Bechtelar"
+9,10,4140149827486249,,success,2012-03-27 14:54:10 UTC,2012-03-27 14:54:10 UTC,Dejon,Fadel,1832,6,29973,2,27,shipped,Pollich and Sons
