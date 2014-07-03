@@ -19,8 +19,7 @@ class ItemRepositoryTest < Minitest::Test
   end
 
   def test_it_finds_merchant
-    merchants = item_repo.find_merchant("1")
-    assert_equal 1, merchants.count
-    assert_kind_of Merchant, merchants[0]
-  end
+    merchant = item_repo.find_merchant("1")
+    assert_kind_of Merchant, merchant
+end
 end
