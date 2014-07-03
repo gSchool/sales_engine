@@ -47,8 +47,7 @@ class ItemTest < Minitest::Test
   end
 
   def test_it_has_a_merchant
-    merchants = item.merchant
-    assert_equal 1, merchants.count
-    assert_kind_of Merchant, merchants[0]
+    merchant = item.merchant
+    assert_kind_of Merchant, merchant
   end
 end
