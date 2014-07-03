@@ -1,4 +1,5 @@
 require_relative 'test_helper'
+require 'pry'
 
 class InvoiceItemTest < Minitest::Test
   attr_reader :invoice_item
@@ -6,7 +7,7 @@ class InvoiceItemTest < Minitest::Test
   def setup
     engine = SalesEngine.new
     engine.startup("./test/fixtures")
-    @invoice_item = InvoiceItem.new({id: '1', item_id: '539', invoice_id: '1', quantity: '5', unit_price: '13635', created_at: '2012-03-27 14:54:09 UTC', updated_at: '2012-03-27 14:54:09 UTC'}, InvoiceItemRepository.from_file('test/fixtures/invoice_items.csv', engine))
+    @invoice_item = InvoiceItem.new({id: '1', item_id: '539', invoice_id: '1', quantity: '5', unit_price: '13635', created_at: '2012-03-27 14:54:09 UTC', updated_at: '2012-03-27 14:54:09 UTC'}, "test/fixtures", InvoiceItemRepository.from_file('test/fixtures/invoice_items.csv', engine))
   end
 
   def test_it_has_an_id
@@ -35,5 +36,17 @@ class InvoiceItemTest < Minitest::Test
 
   def test_it_has_updated_at_date
     assert_equal '2012-03-27 14:54:09 UTC', invoice_item.updated_at
+  end
+
+  def test_it_has_items
+    items = invoice_item.items
+    assert_equal 1, items.count
+    assert_kind_of Item, items[0]
+  end
+
+  def test_it_has_invoices
+    invoices = invoice_item.invoices
+    assert_equal 1, invoices.count
+    assert_kind_of Invoice, invoices[0]
   end
 end

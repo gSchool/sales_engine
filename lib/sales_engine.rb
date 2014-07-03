@@ -23,4 +23,12 @@ class SalesEngine
   def find_invoices_by(id, attribute)
     invoice_repository.objects.find_all{|invoice| invoice.send(attribute) == id}
   end
+
+  def find_transactions_by(id,attribute)
+    transaction_repository.objects.find_all{|transaction| transaction.send(attribute) == id}
+  end
+
+  def find_invoice_items_by(id, attribute)
+    invoice_item_repository.objects.find_all{|invoice_item| invoice_item.send(attribute) == id}
+  end
 end

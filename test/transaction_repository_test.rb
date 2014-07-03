@@ -13,4 +13,10 @@ class TransactionRepositoryTest < Minitest::Test
     assert transaction_repo.objects
   end
 
+  def test_it_has_invoices
+    invoices = transaction_repo.find_invoices("1")
+    assert_equal 1, invoices.count
+    assert_kind_of Invoice, invoices[0]
+  end
+
 end

@@ -13,4 +13,15 @@ class InvoiceItemRepositoryTest < Minitest::Test
     assert invoice_item_repo.objects
   end
 
+  def test_it_finds_items
+    items = invoice_item_repo.find_items("539")
+    assert_equal 1, items.count
+    assert_kind_of Item, items[0]
+  end
+
+  def test_it_finds_invoices
+    invoices = invoice_item_repo.find_invoices("1")
+    assert_equal 1, invoices.count
+    assert_kind_of Invoice, invoices[0]
+  end
 end

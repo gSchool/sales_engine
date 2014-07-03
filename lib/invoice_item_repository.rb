@@ -11,4 +11,16 @@ class InvoiceItemRepository
     @objects = invoice_items
     @sales_engine = engine
   end
+
+  def find_items(id)
+    invoice_items = sales_engine.find_invoice_items_by(id, "item_id")
+    item_id = invoice_items.map {|invoice_item| invoice_item.item_id}.first
+    sales_engine.find_items_by(item_id, "id")
+  end
+
+  def find_invoices(id)
+    invoice_items = sales_engine.find_invoice_items_by(id, "invoice_id")
+    invoice_id = invoice_items.map {|invoice_item| invoice_item.invoice_id}.first
+    sales_engine.find_invoices_by(invoice_id, "id")
+  end
 end
