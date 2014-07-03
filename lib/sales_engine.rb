@@ -21,7 +21,7 @@ class SalesEngine
   end
 
   def find_invoices_by(id, attribute)
-    invoice_repository.objects.find_all{|invoice| invoice.send(attribute) == id}
+    invoice_repository.objects.find_all {|invoice| invoice.send(attribute) == id}
   end
 
   def find_invoice_items_by(id, attribute)
@@ -29,6 +29,6 @@ class SalesEngine
   end
 
   def find_merchant_by(id, attribute)
-    merchant_repository.objects.find_all{|merchant| merchant.send(attribute) == id}
+    merchant_repository.objects.find {|merchant| merchant.send(attribute) == id}
   end
 end
